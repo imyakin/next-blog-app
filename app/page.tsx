@@ -1,26 +1,69 @@
 "use client"
 
-import { MainLayout } from "../src/layouts/MainLayout/MainLayout";
-import Image from "next/image";
+import { MainLayout } from "@/src/layouts/MainLayout/MainLayout";
+import { Image } from '@/src/components/UI/Image/Image';
 import Avatar from '@/src/assets/images/avatar.jpeg'
 import { SplitScreen } from "@/src/components/UI/SplitScreen/SplitScreen";
-import { Box } from "@chakra-ui/react";
+import { home } from './constants'
+import { Box, Text, Stack, Button, useMediaQuery, Divider } from "@chakra-ui/react";
+import { EmailIcon } from "@chakra-ui/icons";
+import { TfiViewListAlt } from "react-icons/tfi";
+import { routing } from "@/src/constants/routing";
+import { Link } from '@/src/components/UI/Link/Link';
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const [isMobile] = useMediaQuery('(max-width: 479px)')
+
   return (
     <MainLayout>
       <SplitScreen>
-        <Image
-          src={Avatar}
-          alt='avatar'
-          width={300}
-          height={300}
-        />
-        <Box>
-          <p>
-          ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquam amet cum cumque delectus eaque, excepturi, facere facilis ipsam pariatur quas repellat reprehenderit vel veritatis. Aliquid amet aperiam, assumenda blanditiis consectetur corporis delectus deserunt dolore doloremque eius incidunt labore maxime nobis nostrum praesentium, provident rem sequi tempora unde ut! Commodi consequuntur ducimus fuga maiores modi numquam officiis ullam? Aliquam, architecto assumenda cupiditate debitis eaque explicabo id impedit maiores mollitia nemo nisi officia pariatur possimus praesentium quos repellendus reprehenderit repudiandae ullam velit voluptatem? Accusantium ad, amet asperiores, autem beatae eius enim esse incidunt laborum laudantium magni maiores molestias nobis non nostrum officiis, quam qui quo ratione reiciendis repellendus repudiandae suscipit ullam unde voluptate! Ab aperiam fugit nostrum! Beatae, quod, voluptates
-          </p>
+        <Box sx={{minWidth: 300}} display={isMobile ? 'flex' : 'initial'} justifyContent={isMobile ? 'center' : 'initial'}>
+          <Image
+            src={Avatar}
+            alt='avatar'
+            width={300}
+            initial={{opacity: 0, y: 15}}
+            animate={{opacity: 1, y: 0}}
+            exit={{opacity: 0, y: 15}}
+            transition={{delay: 0.25}}
+          />
+        </Box>
+        <Stack color="teal.500">
+          <Text fontSize={isMobile ? "md" : 'xl'}>
+            {home.greet}
+          </Text>
+          <Divider />
+          <Text fontSize={isMobile ? "md" : '2xl'} align="center">
+            {home.title}
+          </Text>
+          <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+            {home.stack}
+          </Text>
+          <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+            {home.techs}
+          </Text>
+          <Box display="flex" justifyContent="center">
+            <Link href={routing.stack} >
+              <motion.div whileHover={{ scale: 1.2 }}>
+                <Button colorScheme='teal' leftIcon={<TfiViewListAlt/>}>{home.btnStack}</Button>
+              </motion.div>
+            </Link>
           </Box>
+          <Text fontSize={isMobile ? "md" : 'xl'} align="center">
+            {home.text}
+          </Text>
+          <Text as="b" fontSize={isMobile ? "sm" : 'lg'} align="center">
+            {home.endText}
+          </Text>
+          <Box display="flex" justifyContent="center">
+              <Link href={routing.contacts} >
+                <motion.div whileHover={{ scale: 1.2 }}>
+                  <Button colorScheme='whatsapp' leftIcon={<EmailIcon/>}>{home.btnContact}</Button>
+                </motion.div>
+              </Link>
+          </Box>
+        </Stack>
       </SplitScreen>
     </MainLayout>
   )
