@@ -1,8 +1,20 @@
+"use client"
+
 import { MainLayout } from "@/src/layouts/MainLayout/MainLayout";
+import { Form } from "./components/Form";
+import { Box, Stack } from "@chakra-ui/react";
+import { SplitScreen } from "@/src/components/UI/SplitScreen/SplitScreen";
 
 const Contacts = () => {
   return (
-    <MainLayout>Contacts!!!</MainLayout>
+    <MainLayout>
+      <SplitScreen>
+        <Box>some text</Box>
+        <Stack>
+          <Form/>
+        </Stack>
+      </SplitScreen>
+    </MainLayout>
   )
 }
 

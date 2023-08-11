@@ -63,6 +63,7 @@ const Home = () => {
           </Box>
         </Stack>
       </SplitScreen>
+      <Divider sx={{mt: 5}}/>
     </MainLayout>
   )
 }

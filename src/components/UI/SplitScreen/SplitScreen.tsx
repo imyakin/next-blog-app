@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export const SplitScreen = ({children}: {children: ReactNode}) => {
   return (
-    <Stack direction={['column', 'row']}>
+    <Stack display="flex" justifyContent="space-between" direction={['column', 'row']}>
       {children}
     </Stack>
   );
