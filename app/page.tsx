@@ -5,15 +5,17 @@ import { Image } from '@/src/components/UI/Image/Image';
 import Avatar from '@/src/assets/images/avatar.jpeg'
 import { SplitScreen } from "@/src/components/UI/SplitScreen/SplitScreen";
 import { home } from './constants'
-import { Box, Text, Stack, Button, useMediaQuery, Divider } from "@chakra-ui/react";
-import { EmailIcon } from "@chakra-ui/icons";
-import { TfiViewListAlt } from "react-icons/tfi";
+import { Box, Text, Stack, useMediaQuery, Divider } from "@chakra-ui/react";
 import { routing } from "@/src/constants/routing";
 import { Link } from '@/src/components/UI/Link/Link';
-import { motion } from "framer-motion";
+import { ContactButton } from "@/src/components/ContactButton/ContactButton";
+import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
+import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllStackButton";
 
-export default function Home() {
+const Home = () => {
   const [isMobile] = useMediaQuery('(max-width: 479px)')
+  const ScalableContactButton = withHoverScale(ContactButton, 1.2);
+  const ScalableViewAllStackButton = withHoverScale(ViewAllStackButton, 1.2);
 
   return (
     <MainLayout>
@@ -45,9 +47,7 @@ export default function Home() {
           </Text>
           <Box display="flex" justifyContent="center">
             <Link href={routing.stack} >
-              <motion.div whileHover={{ scale: 1.2 }}>
-                <Button colorScheme='teal' leftIcon={<TfiViewListAlt/>}>{home.btnStack}</Button>
-              </motion.div>
+              <ScalableViewAllStackButton />
             </Link>
           </Box>
           <Text fontSize={isMobile ? "md" : 'xl'} align="center">
@@ -58,9 +58,7 @@ export default function Home() {
           </Text>
           <Box display="flex" justifyContent="center">
               <Link href={routing.contacts} >
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <Button colorScheme='whatsapp' leftIcon={<EmailIcon/>}>{home.btnContact}</Button>
-                </motion.div>
+                <ScalableContactButton />
               </Link>
           </Box>
         </Stack>
@@ -68,3 +66,5 @@ export default function Home() {
     </MainLayout>
   )
 }
+
+export default Home;
