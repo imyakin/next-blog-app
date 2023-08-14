@@ -11,6 +11,9 @@ import { Link } from '@/src/components/UI/Link/Link';
 import { ContactButton } from "@/src/components/ContactButton/ContactButton";
 import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllStackButton";
+import { Slider } from "@/src/components/UI/Swiper/Swiper";
+import { SwiperSlide } from 'swiper/react';
+import { slides } from "@/src/mocks/slides"
 
 const Home = () => {
   const [isMobile] = useMediaQuery('(max-width: 479px)')
@@ -63,7 +66,18 @@ const Home = () => {
           </Box>
         </Stack>
       </SplitScreen>
-      <Divider sx={{mt: 5}}/>
+      <Divider sx={{mt: 5, mb: 5}}/>
+      <Box>
+        <Slider>
+          {slides.map((slide) => {
+              return (
+                <SwiperSlide key={slide.href}>
+                  <Image src={slide.href} alt={slide.alt} width={700} height={400} />
+                </SwiperSlide>
+              )
+          })}
+        </Slider>
+      </Box>
     </MainLayout>
   )
 }
