@@ -11,7 +11,7 @@ import { Link } from '@/src/components/UI/Link/Link';
 import { ContactButton } from "@/src/components/ContactButton/ContactButton";
 import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllStackButton";
-import { Slider } from "@/src/components/UI/Swiper/Swiper";
+import { Slider } from "@/src/components/UI/Slider/Slider";
 import { SwiperSlide } from 'swiper/react';
 import { slides } from "@/src/mocks/slides"
 
@@ -67,7 +67,10 @@ const Home = () => {
         </Stack>
       </SplitScreen>
       <Divider sx={{mt: 5, mb: 5}}/>
-      <Box>
+      <Stack>
+        <Text as="u" fontSize={isMobile ? "md" : '2xl'} color="teal">
+          {home.certificates}
+        </Text>
         <Slider>
           {slides.map((slide) => {
               return (
@@ -77,7 +80,7 @@ const Home = () => {
               )
           })}
         </Slider>
-      </Box>
+      </Stack>
     </MainLayout>
   )
 }
