@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { HamburgerMenu, MenuItemProps } from '../HamburgerMenu/HamburgerMenu';
-import { Box, Flex, Spacer, Stack } from '@chakra-ui/react';
+import { Box, Flex, Spacer, Stack, IconButton } from '@chakra-ui/react';
 import { useSession, signOut } from 'next-auth/react';
 import { Link } from '@/src/components/UI/Link/Link';
 import { BellIcon, LinkIcon, StarIcon, AtSignIcon } from "@chakra-ui/icons";
+import { SiLinkedin, SiTelegram } from "react-icons/si";
 import { routing } from "@/src/constants/routing";
+import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 
 export const menuItems = [
   {
@@ -53,11 +55,19 @@ export const Header = () => {
       <Link href="/api/auth/signin">SignIn</Link>
     );
 
+  const LinkedInButton = withHoverScale(() => <IconButton aria-label="linkedin" icon={<SiLinkedin />} />, 1.1);
+  const TelegramButton = withHoverScale(() => <IconButton aria-label="telegram" icon={<SiTelegram />} />, 1.1);
+
   return (
     <Flex padding={5}>
-      <Box>
-        Logo
-      </Box>
+      <Stack direction="row">
+        <a href="https://www.linkedin.com/in/alexmiakin/" target="_blank">
+          <LinkedInButton />
+        </a>
+        <a href="https://t.me/imyakin" target="_blank">
+          <TelegramButton />
+        </a>
+      </Stack>
       <Spacer/>
       <Stack direction="row" gap={3} alignItems="center">
         <Box>
