@@ -6,7 +6,7 @@ export const contacts = {
   },
   mail: {
     title: 'mail:',
-    text: 'myakinalex@yandex.ru'
+    text: 'myakinalex@gmail.com'
   },
   wechat: {
     title: 'wechat:',
