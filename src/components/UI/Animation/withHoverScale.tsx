@@ -1,8 +1,8 @@
 import { ButtonProps } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { JSX } from "react";
 
-export const withHoverScale = (Component: ReactNode, scale: number) => {
+export const withHoverScale = (Component: () => JSX.Element, scale: number) => {
   // eslint-disable-next-line react/display-name
   return (props: ButtonProps) => {
     return (
