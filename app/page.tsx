@@ -16,7 +16,7 @@ import { SwiperSlide } from 'swiper/react';
 import { slides } from "@/src/mocks/slides"
 
 const Home = () => {
-  const [isMobile] = useMediaQuery('(max-width: 479px)')
+  const [isMobile] = useMediaQuery('(max-width: 479px)');
   const ScalableContactButton = withHoverScale(ContactButton, 1.2);
   const ScalableViewAllStackButton = withHoverScale(ViewAllStackButton, 1.2);
 
