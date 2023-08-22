@@ -4,6 +4,6 @@ import { motion } from 'framer-motion';
 
 type Props = ImageProps;
 
-const MImage = motion<Omit<Props, 'transition'>>(Image)
+const MImage = motion<Props>(Image)
 
 export { MImage as Image };
