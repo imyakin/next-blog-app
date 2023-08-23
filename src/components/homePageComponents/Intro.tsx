@@ -8,9 +8,16 @@ import { SplitScreen } from "@/src/components/UI/SplitScreen/SplitScreen";
 import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 import { ContactButton } from "@/src/components/ContactButton/ContactButton";
 import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllStackButton";
+import { motion, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 export const Intro = () => {
   const [isMobile] = useMediaQuery('(max-width: 479px)');
+  const stackRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: stackRef,
+    offset: ["0 1", "1 1"],
+  });
   const ScalableContactButton = withHoverScale(ContactButton, 1.2);
   const ScalableViewAllStackButton = withHoverScale(ViewAllStackButton, 1.2);
   return (
@@ -26,37 +33,49 @@ export const Intro = () => {
           transition={{delay: 0.25, duration: 1}}
         />
       </Box>
-      <Stack color="teal.500">
-        <Text fontSize={isMobile ? "md" : 'xl'}>
-          {home.greet}
-        </Text>
-        <Divider />
-        <Text fontSize={isMobile ? "md" : '2xl'} align="center">
-          {home.title}
-        </Text>
-        <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
-          {home.stack}
-        </Text>
-        <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
-          {home.techs}
-        </Text>
-        <Box display="flex" justifyContent="center">
-          <Link href={routing.stack} >
-            <ScalableViewAllStackButton />
-          </Link>
-        </Box>
-        <Text fontSize={isMobile ? "md" : 'xl'} align="center">
-          {home.text}
-        </Text>
-        <Text as="b" fontSize={isMobile ? "sm" : 'lg'} align="center">
-          {home.endText}
-        </Text>
-        <Box display="flex" justifyContent="center">
-          <Link href={routing.contacts} >
-            <ScalableContactButton />
-          </Link>
-        </Box>
-      </Stack>
+      <Box>
+        <Stack color="teal.500">
+          <Text fontSize={isMobile ? "md" : 'xl'}>
+            {home.greet}
+          </Text>
+          <Divider />
+          <Text fontSize={isMobile ? "md" : '2xl'} align="center">
+            {home.title}
+          </Text>
+        </Stack>
+        <motion.div
+          ref={stackRef}
+          style={{
+            scale: scrollYProgress,
+            opacity: scrollYProgress
+          }}
+        >
+          <Stack color="teal.500">
+            <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+              {home.stack}
+            </Text>
+            <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+              {home.techs}
+            </Text>
+            <Box display="flex" justifyContent="center">
+              <Link href={routing.stack} >
+                <ScalableViewAllStackButton />
+              </Link>
+            </Box>
+            <Text fontSize={isMobile ? "md" : 'xl'} align="center">
+              {home.text}
+            </Text>
+            <Text as="b" fontSize={isMobile ? "sm" : 'lg'} align="center">
+              {home.endText}
+            </Text>
+            <Box display="flex" justifyContent="center">
+              <Link href={routing.contacts} >
+                <ScalableContactButton />
+              </Link>
+            </Box>
+          </Stack>
+        </motion.div>
+      </Box>
     </SplitScreen>
   );
 };
