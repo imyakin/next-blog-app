@@ -33,8 +33,9 @@ export const Form = () => {
           name={contacts.form.message.name}
         />
       </FormControl>
-
-      <Button isDisabled>{contacts.form.btn.text}</Button>
+      <Box sx={{mt: 2}}>
+        <Button isDisabled>{contacts.form.btn.text}</Button>
+      </Box>
     </Box>
   )
 }
