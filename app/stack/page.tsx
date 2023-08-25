@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 function Stack() {
   return (
     <MainLayout>
-      <Flex flexWrap="wrap" sx={{mb: 5}}>
+      <Flex flexWrap="wrap" justifyContent="center" sx={{mb: 5}}>
         {stackImages.map((img, i) => {
           return (
             <Box key={`${img.alt}_${i}`} sx={{m: 2}}>
@@ -21,7 +21,7 @@ function Stack() {
                 transition={{ duration: 0.3, delay: i * 0.3 }}
               >
                 <a href={img.href} target="_blank">
-                  <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
+                  <Image title={img.alt} src={img.src} alt={img.alt} width={80} height={80} />
                 </a>
               </motion.div>
             </Box>
