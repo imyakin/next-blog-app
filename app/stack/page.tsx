@@ -21,7 +21,9 @@ function Stack() {
                 transition={{ duration: 0.3, delay: i * 0.3 }}
               >
                 <a href={img.href} target="_blank">
-                  <Image title={img.alt} src={img.src} alt={img.alt} width={80} height={80} />
+                  <motion.div whileHover={{scale: 1.2}}>
+                    <Image title={img.alt} src={img.src} alt={img.alt} width={80} height={80} />
+                  </motion.div>
                 </a>
               </motion.div>
             </Box>

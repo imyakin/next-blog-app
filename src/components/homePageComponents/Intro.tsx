@@ -65,7 +65,9 @@ export const Intro = () => {
                       transition={{ duration: 0.3, delay: i * 0.3 }}
                     >
                       <a href={img.href} target="_blank">
-                        <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
+                        <motion.div whileHover={{scale: 1.2}}>
+                          <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
+                        </motion.div>
                       </a>
                     </motion.div>
                   </Box>
