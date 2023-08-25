@@ -2,6 +2,7 @@ import './globals.css'
 import Providers from './providers';
 import { Header } from '../src/components/Header/Header'
 import { Metadata } from 'next';
+import { ScrollPageProgressBar } from "@/src/components/ScrollPageProgressBar/ScrollPageProgressBar";
 
 export const metadata: Metadata = {
   title: 'Blog | Aleksandr Miakin',
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
+          <ScrollPageProgressBar />
           <Header />
           {children}
         </Providers>
