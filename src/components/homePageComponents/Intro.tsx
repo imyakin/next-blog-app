@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Divider, Flex, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import { Image } from "@/src/components/UI/Image/Image";
 import Avatar from "@/src/assets/images/avatar.jpeg";
 import { home } from "@/app/constants";
@@ -9,7 +9,8 @@ import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 import { ContactButton } from "@/src/components/ContactButton/ContactButton";
 import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllStackButton";
 import { motion, useScroll } from "framer-motion";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { stackImages } from "@/src/mocks/stack-images";
 
 export const Intro = () => {
   const [isMobile] = useMediaQuery('(max-width: 479px)');
@@ -54,6 +55,23 @@ export const Intro = () => {
             <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
               {home.stack}
             </Text>
+            <Flex justifyContent="center" flexWrap="wrap" sx={{mb: 5}}>
+              {stackImages.slice(0, 12).map((img, i) => {
+                return (
+                  <Box key={`${img.alt}_${i}`} sx={{m: 2}}>
+                    <motion.div
+                      initial={{opacity: 0, translateX: -50, translateY: -50}}
+                      animate={{opacity: 1, translateX: 0, translateY: 0}}
+                      transition={{ duration: 0.3, delay: i * 0.3 }}
+                    >
+                      <a href={img.href} target="_blank">
+                        <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
+                      </a>
+                    </motion.div>
+                  </Box>
+                )
+              })}
+            </Flex>
             <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
               {home.techs}
             </Text>
