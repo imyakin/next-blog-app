@@ -19,7 +19,7 @@ function About() {
                 title={job.title}
                 duration={job.duration}
                 description={job.description}
-                details={job.details} c
+                details={job.details}
               />
             </div>
           );
