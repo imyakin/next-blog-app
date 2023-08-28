@@ -14,7 +14,13 @@ function About() {
         {experience.map((job, index) => {
           return (
             <div key={`${job.title}_${index}`}>
-              <Card src={job.src} title={job.title} duration={job.duration} description={job.description} />
+              <Card
+                src={job.src}
+                title={job.title}
+                duration={job.duration}
+                description={job.description}
+                details={job.details} c
+              />
             </div>
           );
         })}
