@@ -4,7 +4,7 @@ import React from 'react';
 import { HamburgerMenu, MenuItemProps } from '../HamburgerMenu/HamburgerMenu';
 import { Box, Flex, Spacer, Stack, IconButton } from '@chakra-ui/react';
 // import { useSession, signOut } from 'next-auth/react';
-import { SiLinkedin, SiTelegram, SiGooglehome, SiAboutdotme, SiStackoverflow, SiGooglemessages } from "react-icons/si";
+import { SiLinkedin, SiTelegram, SiGooglehome, SiGithub, SiStackoverflow, SiGooglemessages } from "react-icons/si";
 import { routing } from "@/src/constants/routing";
 import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
 
@@ -15,9 +15,9 @@ export const menuItems = [
     icon: <SiGooglehome />
   },
   {
-    name: 'About',
-    href: routing.about,
-    icon: <SiAboutdotme />
+    name: 'Experience',
+    href: routing.experience,
+    icon: <SiGithub />
   },
   {
     name: 'My Stack',

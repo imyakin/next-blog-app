@@ -1,7 +1,7 @@
 export const routing = {
   home: '/',
   profile: '/profile',
-  about: '/about',
+  experience: '/experience',
   stack: '/stack',
   contacts: '/contacts'
 };
