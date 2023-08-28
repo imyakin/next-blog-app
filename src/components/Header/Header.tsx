@@ -55,6 +55,7 @@ export const Header = () => {
 
   const LinkedInButton = withHoverScale(() => <IconButton aria-label="linkedin" icon={<SiLinkedin />} />, 1.1);
   const TelegramButton = withHoverScale(() => <IconButton aria-label="telegram" icon={<SiTelegram />} />, 1.1);
+  const GitHubButton = withHoverScale(() => <IconButton aria-label="telegram" icon={<SiGithub />} />, 1.1);
 
   return (
     <Flex padding={5}>
@@ -64,6 +65,9 @@ export const Header = () => {
         </a>
         <a href="https://t.me/imyakin" target="_blank">
           <TelegramButton />
+        </a>
+        <a href="https://github.com/imyakin" target="_blank">
+          <GitHubButton />
         </a>
       </Stack>
       <Spacer/>
