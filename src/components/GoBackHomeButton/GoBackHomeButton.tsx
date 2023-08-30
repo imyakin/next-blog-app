@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import React from "react";
 import Link from 'next/link';
-import { routing } from "@/src/constants/routing";
+import { routing } from "../../constants/routing";
 
 export const GoBackHomeButton = () => {
   return (
