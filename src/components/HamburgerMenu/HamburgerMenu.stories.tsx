@@ -5,7 +5,6 @@ import { menuItems } from "../Header/Header";
 const meta: Meta = {
   title: 'components/HamburgerMenu',
   component: HamburgerMenu,
-  tags: ['autodocs']
 };
 
 export default meta;

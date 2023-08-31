@@ -1,4 +1,4 @@
-name: Storybook deployment
+name: Deploy Storybook
 
 on: workflow_dispatch
 
