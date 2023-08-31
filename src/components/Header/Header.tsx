@@ -5,8 +5,8 @@ import { HamburgerMenu, MenuItemProps } from '../HamburgerMenu/HamburgerMenu';
 import { Box, Flex, Spacer, Stack, IconButton } from '@chakra-ui/react';
 // import { useSession, signOut } from 'next-auth/react';
 import { SiLinkedin, SiTelegram, SiGooglehome, SiGithub, SiStackoverflow, SiGooglemessages } from "react-icons/si";
-import { routing } from "@/src/constants/routing";
-import { withHoverScale } from "@/src/components/UI/Animation/withHoverScale";
+import { routing } from "../../constants/routing";
+import { withHoverScale } from "../../components/UI/Animation/withHoverScale";
 
 export const menuItems = [
   {
