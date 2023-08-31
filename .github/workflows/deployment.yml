@@ -23,4 +23,4 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Build storybook
-        run: npm run build-sb
+        run: npm run build-storybook
