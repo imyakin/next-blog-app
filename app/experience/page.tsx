@@ -10,7 +10,7 @@ import { Card } from '@/src/components/UI/Card/Card'
 function About() {
   return (
     <MainLayout>
-      <Stack>
+      <Stack mb={14}>
         {experience.map((job, index) => {
           return (
             <div key={`${job.title}_${index}`}>

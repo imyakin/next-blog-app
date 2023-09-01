@@ -1,7 +1,7 @@
 "use client"
 
 import { MainLayout } from "@/src/layouts/MainLayout/MainLayout";
-import { Divider } from "@chakra-ui/react";
+import { Divider, Box } from "@chakra-ui/react";
 import { Intro } from "@/src/components/homePageComponents/Intro";
 import { Certificates } from "@/src/components/homePageComponents/Certificates";
 
@@ -11,7 +11,9 @@ const Home = () => {
     <MainLayout>
       <Intro />
       <Divider sx={{mt: 5, mb: 5}}/>
-      <Certificates />
+      <Box mb={14}>
+        <Certificates />
+      </Box>
     </MainLayout>
   )
 }
