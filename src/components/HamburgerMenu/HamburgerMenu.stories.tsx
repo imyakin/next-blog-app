@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { HamburgerMenu } from './HamburgerMenu';
+import { HamburgerMenu, MenuItemProps } from './HamburgerMenu';
 import { menuItems } from "../Header/Header";
 
-const meta: Meta = {
+const meta: Meta<typeof HamburgerMenu> = {
   title: 'components/HamburgerMenu',
   component: HamburgerMenu,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof HamburgerMenu>
 
 export const Default: Story = {
-  args: {
-    menuItems,
-  }
+ args: {
+   menuItems: menuItems as MenuItemProps[],
+ }
 }
