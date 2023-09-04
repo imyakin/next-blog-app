@@ -36,7 +36,7 @@ export const Certificates = () => {
             {slides.map((slide) => {
               return (
                 <SwiperSlide key={slide.href}>
-                  <Image src={slide.href} alt={slide.alt} width={700} height={400} />
+                  <Image src={slide.href} alt={slide.alt} width={600} height={300} />
                 </SwiperSlide>
               )
             })}
