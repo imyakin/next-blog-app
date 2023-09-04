@@ -1,13 +1,11 @@
 export const home = {
   greet: 'Hi there, I\'m Alex Miakin!',
-  title: 'I\'m a Frontend Software Engineer with a commercial web development experience on ReactJS and NextJS frameworks across the USA, China and Europe, always follow best coding practices (Design Patterns, OOP, SOLID etc.).',
+  title: 'I am a dedicated Frontend Developer with a strong passion for creating user-friendly and visually appealing web applications. I bring a wealth of experience from my roles at EPAM Systems, where I\'ve had the privilege to work on impactful projects for big clients in E-commerce and Healthcare.',
   stack: 'Current stack:',
   techs: 'JavaScript/TypeScript, ReactJS/NextJS, Redux/Mobx, GraphQL, Apollo, CSS/SCSS, React Hook Form/Formik, MUI/ChakraUI',
-  text: 'I do love coding and exploring new things, approaches and patterns. Currently I’m learning AWS (Amazon Web Services).\n' +
-    'I’m an avid fan of teaching and learning, had experience of being a mentor and an interviewer.\n' +
-    'I have a big experience of working abroad in Armenia, USA and China and I’m learning Chinese as well.',
-  endText: ' I\'m always interested in networking and discussing business opportunities, please feel free to text\n' +
-    ' me.',
+  text: 'My journey in the world of development began as a Freelance Frontend Developer on Upwork, and I\'ve since honed my skills through coaching and mentoring as a JavaScript Coach at WayUp.' +
+    'I\'m always eager to connect with fellow developers, professionals, and like-minded individuals.',
+  endText: 'Feel free to reach out for discussions on Frontend Development, collaboration opportunities, or simply to connect and exchange ideas',
   btnStack: 'View All Stack',
   btnContact: 'Contact Me!',
   certificates: 'Certificates:'
