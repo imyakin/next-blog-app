@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Button, FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
 import { contacts } from '../constants';
 

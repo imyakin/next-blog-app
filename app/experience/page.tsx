@@ -1,33 +1,21 @@
-"use client"
-
 import React from 'react'
 import { MainLayout } from "@/src/layouts/MainLayout/MainLayout";
-import { Stack } from "@chakra-ui/react";
 import { GoBackHomeButton } from "@/src/components/GoBackHomeButton/GoBackHomeButton";
-import { experience } from "@/src/mocks/experience";
-import { Card } from '@/src/components/UI/Card/Card'
+import { ExperienceMapping } from "./components/ExperienceMapping";
+import { Wrapper } from './components/Wrapper';
+import { SlideUp } from "@/src/components/UI/Animation/SlideUp";
 
-function About() {
+function Experience() {
   return (
     <MainLayout>
-      <Stack mb={14}>
-        {experience.map((job, index) => {
-          return (
-            <div key={`${job.title}_${index}`}>
-              <Card
-                src={job.src}
-                title={job.title}
-                duration={job.duration}
-                description={job.description}
-                details={job.details}
-              />
-            </div>
-          );
-        })}
-        <GoBackHomeButton />
-      </Stack>
+      <Wrapper>
+        <ExperienceMapping />
+        <SlideUp>
+          <GoBackHomeButton />
+        </SlideUp>
+      </Wrapper>
     </MainLayout>
   )
 }
 
-export default About
+export default Experience
