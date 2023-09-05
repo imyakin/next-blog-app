@@ -1,4 +1,6 @@
 'use client';
-import { Box as BoxChakra } from "@chakra-ui/react";
+import { Box as BoxChakra, BoxProps } from "@chakra-ui/react";
 
-export const Box = () => <BoxChakra />;
+type Props = BoxProps;
+
+export const Box = ({...rest}: Props) => <BoxChakra {...rest} />;

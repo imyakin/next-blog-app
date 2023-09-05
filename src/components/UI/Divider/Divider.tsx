@@ -1,4 +1,6 @@
 'use client';
-import { Divider as DividerChakra } from "@chakra-ui/react";
+import { Divider as DividerChakra, DividerProps } from "@chakra-ui/react";
 
-export const Divider = () => <DividerChakra  />;
+type Props = DividerProps;
+
+export const Divider = ({...rest}: Props) => <DividerChakra {...rest} />;
