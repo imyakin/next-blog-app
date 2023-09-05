@@ -1,7 +1,9 @@
+'use client';
+
 import { Box, Divider, Flex, Stack, Text, useMediaQuery } from "@chakra-ui/react";
 import { Image } from "@/src/components/UI/Image/Image";
 import Avatar from "@/src/assets/images/avatar.jpeg";
-import { home } from "../../constants/home";
+import { home } from "../../src/constants/home";
 import { Link } from "@/src/components/UI/Link/Link";
 import { routing } from "@/src/constants/routing";
 import { SplitScreen } from "@/src/components/UI/SplitScreen/SplitScreen";

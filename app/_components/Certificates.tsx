@@ -1,5 +1,7 @@
+'use client';
+
 import { Stack, Text, useMediaQuery } from "@chakra-ui/react";
-import { home } from "../../constants/home";
+import { home } from "../../src/constants/home";
 import { Slider } from "@/src/components/UI/Slider/Slider";
 import { slides } from "@/src/mocks/slides";
 import { SwiperSlide } from 'swiper/react';
