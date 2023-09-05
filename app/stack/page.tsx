@@ -4,6 +4,11 @@ import { GoBackHomeButton } from "@/src/components/GoBackHomeButton/GoBackHomeBu
 import { TechStackMapping } from './components/TechStackMapping';
 import { Wrapper } from './components/Wrapper';
 import { SlideUp } from "@/src/components/UI/Animation/SlideUp";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'TechStack',
+};
 
 function Stack() {
   return (
