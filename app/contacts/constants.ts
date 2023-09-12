@@ -1,3 +1,15 @@
+export enum Values {
+  NAME = "name",
+  EMAIL = "email",
+  MESSAGE = "message",
+}
+
+export const initialValues = {
+  [Values.NAME]: '',
+  [Values.EMAIL]: '',
+  [Values.MESSAGE]: ''
+};
+
 export const contacts = {
   title: 'Feel free to reach me out: ',
   telegram: {
@@ -16,12 +28,14 @@ export const contacts = {
     name: {
       label: 'Name:',
       placeholder: 'Enter your name please',
-      name: 'name'
+    },
+    email: {
+      label: 'Email:',
+      placeholder: 'Enter your email please',
     },
     message: {
       label: 'Message:',
       placeholder: 'Enter your message please',
-      name: 'message'
     },
     btn: {
       text: 'Send!'
