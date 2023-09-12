@@ -1,12 +1,12 @@
 'use client';
 
 import { Box, Button, FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
-import { Field, Form as FormikForm, Formik } from 'formik';
+import { Field, Form as FormikForm, Formik, FormikValues, FormikHelpers } from 'formik';
 import { contacts, Values, initialValues } from '../constants';
 import { sendMail } from "../sendEmail";
 
 export const Form = () => {
-  const handleSubmit = async (values, action) => {
+  const handleSubmit = async (values: FormikValues, action: FormikHelpers<FormikValues>) => {
     await sendMail(values);
     action.setSubmitting(false);
   };
