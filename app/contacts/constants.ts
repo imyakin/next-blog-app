@@ -5,9 +5,9 @@ export enum Values {
 }
 
 export const initialValues = {
-  [Values.NAME]: '',
-  [Values.EMAIL]: '',
-  [Values.MESSAGE]: ''
+  name: '',
+  email: '',
+  message: ''
 };
 
 export const contacts = {

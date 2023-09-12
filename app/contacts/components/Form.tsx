@@ -1,14 +1,14 @@
 'use client';
 
 import { Box, Button, FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
-import { Field, Form as FormikForm, Formik, FormikValues, FormikHelpers } from 'formik';
+import { Field, Form as FormikForm, Formik, FormikValues } from 'formik';
 import { contacts, Values, initialValues } from '../constants';
 import { sendMail } from "../sendEmail";
 
 export const Form = () => {
-  const handleSubmit = async (values: FormikValues, action: FormikHelpers<FormikValues>) => {
+  const handleSubmit = async (values: FormikValues, action: any) => {
     await sendMail(values);
-    action.setSubmitting(false);
+    action?.setSubmitting(false);
   };
 
   return  (
@@ -21,29 +21,29 @@ export const Form = () => {
         return (
           <FormikForm>
             <Field name={Values.NAME}>
-              {({field}) => (
+              {(props: any) => (
                 <FormControl isRequired>
                   <FormLabel>{contacts.form.name.label}</FormLabel>
-                  <Input {...field} type="text" placeholder={contacts.form.name.placeholder} />
+                  <Input {...props.field} type="text" placeholder={contacts.form.name.placeholder} />
                 </FormControl>
               )}
             </Field>
 
             <Field name={Values.EMAIL}>
-              {({field}) => (
+              {(props: any) => (
                 <FormControl isRequired>
                   <FormLabel>{contacts.form.email.label}</FormLabel>
-                  <Input {...field} type="email" placeholder={contacts.form.email.placeholder} />
+                  <Input {...props.field} type="email" placeholder={contacts.form.email.placeholder} />
                 </FormControl>
               )}
             </Field>
 
             <Field name={Values.MESSAGE}>
-              {({field}) => (
+              {(props: any) => (
                 <FormControl isRequired>
                   <FormLabel>{contacts.form.message.label}</FormLabel>
                   <Textarea
-                    {...field}
+                    {...props.field}
                     placeholder={contacts.form.message.placeholder}
                   />
                 </FormControl>
