@@ -1,3 +1,5 @@
+export const RESEND_API_KEY= 're_Ee1qadD5_5Yv3dpAwKoQpKAhK3tabaMQR';
+
 export enum Values {
   NAME = "name",
   EMAIL = "email",

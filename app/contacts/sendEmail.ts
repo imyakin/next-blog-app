@@ -1,8 +1,9 @@
 "use server";
 import { Resend } from 'resend';
 import { FormikValues } from 'formik';
+import { RESEND_API_KEY } from "@/app/contacts/constants";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(RESEND_API_KEY);
 
 export const sendMail = async (values: FormikValues) => {
   await resend.emails.send({
