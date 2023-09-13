@@ -1,61 +1,55 @@
 'use client';
-
+import { useFormik } from "formik";
 import { Box, Button, FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
-import { Field, Form as FormikForm, Formik, FormikValues } from 'formik';
 import { contacts, Values, initialValues } from '../constants';
 import { sendMail } from "../sendEmail";
 
 export const Form = () => {
-  const handleSubmit = async (values: FormikValues, action: any) => {
-    await sendMail(values);
-    action?.setSubmitting(false);
-  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    onSubmit: async (values, action) => {
+      await sendMail(values);
+      action?.setSubmitting(false);
+    }
+  });
 
-  return  (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      enableReinitialize
-    >
-      {({isSubmitting}) => {
-        return (
-          <FormikForm>
-            <Field name={Values.NAME}>
-              {(props: any) => (
-                <FormControl isRequired>
-                  <FormLabel>{contacts.form.name.label}</FormLabel>
-                  <Input {...props.field} type="text" placeholder={contacts.form.name.placeholder} />
-                </FormControl>
-              )}
-            </Field>
+  return (
+    <form onSubmit={formik.handleSubmit}>
+      <FormControl isRequired>
+        <FormLabel>{contacts.form.name.label}</FormLabel>
+        <Input
+          type="text"
+          name={Values.NAME}
+          value={formik.values.name}
+          onChange={formik.handleChange}
+          placeholder={contacts.form.name.placeholder}
+        />
+      </FormControl>
 
-            <Field name={Values.EMAIL}>
-              {(props: any) => (
-                <FormControl isRequired>
-                  <FormLabel>{contacts.form.email.label}</FormLabel>
-                  <Input {...props.field} type="email" placeholder={contacts.form.email.placeholder} />
-                </FormControl>
-              )}
-            </Field>
+      <FormControl isRequired>
+        <FormLabel>{contacts.form.email.label}</FormLabel>
+        <Input
+          type="email"
+          name={Values.EMAIL}
+          value={formik.values.email}
+          onChange={formik.handleChange}
+          placeholder={contacts.form.email.placeholder}
+        />
+      </FormControl>
 
-            <Field name={Values.MESSAGE}>
-              {(props: any) => (
-                <FormControl isRequired>
-                  <FormLabel>{contacts.form.message.label}</FormLabel>
-                  <Textarea
-                    {...props.field}
-                    placeholder={contacts.form.message.placeholder}
-                  />
-                </FormControl>
-              )}
-            </Field>
+      <FormControl isRequired>
+        <FormLabel>{contacts.form.message.label}</FormLabel>
+        <Textarea
+          name={Values.MESSAGE}
+          value={formik.values.message}
+          onChange={formik.handleChange}
+          placeholder={contacts.form.message.placeholder}
+        />
+      </FormControl>
 
-            <Box sx={{mt: 2}}>
-              <Button type="submit" isLoading={isSubmitting}>{contacts.form.btn.text}</Button>
-            </Box>
-          </FormikForm>
-        );
-      }}
-    </Formik>
-  )
+      <Box sx={{mt: 2}}>
+        <Button type="submit" isLoading={formik.isSubmitting}>{contacts.form.btn.text}</Button>
+      </Box>
+    </form>
+  );
 }
