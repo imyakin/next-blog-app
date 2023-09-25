@@ -13,6 +13,7 @@ import { ViewAllStackButton } from "@/src/components/ViewAllStackButton/ViewAllS
 import { motion, useScroll } from "framer-motion";
 import React, { useRef } from "react";
 import { stackImages } from "@/src/mocks/stack-images";
+import { animation } from "@/src/constants/animation";
 
 export const Intro = () => {
   const [isMobile] = useMediaQuery('(max-width: 479px)');
@@ -23,79 +24,98 @@ export const Intro = () => {
   });
   const ScalableContactButton = withHoverScale(ContactButton, 1.2);
   const ScalableViewAllStackButton = withHoverScale(ViewAllStackButton, 1.2);
+
   return (
     <SplitScreen>
-      <Box sx={{minWidth: 300}} display={isMobile ? 'flex' : 'initial'} justifyContent={isMobile ? 'center' : 'initial'}>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        style={{minWidth: 300}}
+      >
         <Image
           src={Avatar}
           alt='avatar'
           width={300}
-          initial={{opacity: 0, x: -30}}
-          animate={{opacity: 1, x: 0}}
-          exit={{opacity: 0, x: -30}}
-          transition={{delay: 0.25, duration: 1}}
+          variants={animation}
+          custom={1}
         />
-      </Box>
+      </motion.div>
       <Box>
-        <Stack color="teal.500">
-          <Text fontSize={isMobile ? "md" : 'xl'}>
-            {home.greet}
-          </Text>
-          <Divider />
-          <Text fontSize={isMobile ? "md" : '2xl'} align="center">
-            {home.title}
-          </Text>
-        </Stack>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={animation} custom={2}>
+            <Text fontSize={isMobile ? "md" : 'xl'} color="teal.500">
+              {home.greet}
+            </Text>
+          </motion.div>
+          <motion.div variants={animation} custom={2}>
+            <Divider />
+          </motion.div>
+          <motion.div variants={animation} custom={3}>
+            <Text fontSize={isMobile ? "md" : '2xl'} align="center" color="teal.500">
+              {home.title}
+            </Text>
+          </motion.div>
+        </motion.div>
         <motion.div
           ref={stackRef}
           style={{
             scale: scrollYProgress,
             opacity: scrollYProgress
           }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
         >
-          <Stack color="teal.500">
-            <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
-              {home.stack}
-            </Text>
-            <Flex justifyContent="center" flexWrap="wrap" sx={{mb: 5}}>
-              {stackImages.slice(0, 12).map((img, i) => {
-                return (
-                  <Box key={`${img.alt}_${i}`} sx={{m: 2}}>
-                    <motion.div
-                      initial={{opacity: 0, translateX: -50, translateY: -50}}
-                      animate={{opacity: 1, translateX: 0, translateY: 0}}
-                      transition={{ duration: 0.3, delay: i * 0.3 }}
-                    >
-                      <a href={img.href} target="_blank">
-                        <motion.div whileHover={{scale: 1.2}}>
-                          <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
-                        </motion.div>
-                      </a>
-                    </motion.div>
-                  </Box>
-                )
-              })}
-            </Flex>
-            <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
-              {home.techs}
-            </Text>
-            <Box display="flex" justifyContent="center">
-              <Link href={routing.stack} >
-                <ScalableViewAllStackButton />
-              </Link>
-            </Box>
-            <Text fontSize={isMobile ? "md" : 'xl'} align="center">
-              {home.text}
-            </Text>
-            <Text as="b" fontSize={isMobile ? "sm" : 'lg'} align="center">
-              {home.endText}
-            </Text>
-            <Box display="flex" justifyContent="center">
-              <Link href={routing.contacts} >
-                <ScalableContactButton />
-              </Link>
-            </Box>
-          </Stack>
+          <motion.div variants={animation} custom={3}>
+            <Stack color="teal.500">
+              <Text as="u" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+                {home.stack}
+              </Text>
+              <Flex justifyContent="center" flexWrap="wrap" sx={{mb: 5}}>
+                {stackImages.slice(0, 12).map((img, i) => {
+                  return (
+                    <Box key={`${img.alt}_${i}`} sx={{m: 2}}>
+                      <motion.div
+                        initial={{opacity: 0, translateX: -50, translateY: -50}}
+                        animate={{opacity: 1, translateX: 0, translateY: 0}}
+                        transition={{ duration: 0.3, delay: i * 0.3 }}
+                      >
+                        <a href={img.href} target="_blank">
+                          <motion.div whileHover={{scale: 1.2}}>
+                            <Image title={img.alt} src={img.src} alt={img.alt} width={100} height={100} />
+                          </motion.div>
+                        </a>
+                      </motion.div>
+                    </Box>
+                  )
+                })}
+              </Flex>
+              <Text as="b" fontSize={isMobile ? "md" : '2xl'} align="center" color="teal">
+                {home.techs}
+              </Text>
+              <Box display="flex" justifyContent="center">
+                <Link href={routing.stack} >
+                  <ScalableViewAllStackButton />
+                </Link>
+              </Box>
+              <Text fontSize={isMobile ? "md" : 'xl'} align="center">
+                {home.text}
+              </Text>
+              <Text as="b" fontSize={isMobile ? "sm" : 'lg'} align="center">
+                {home.endText}
+              </Text>
+              <Box display="flex" justifyContent="center">
+                <Link href={routing.contacts} >
+                  <ScalableContactButton />
+                </Link>
+              </Box>
+            </Stack>
+          </motion.div>
         </motion.div>
       </Box>
     </SplitScreen>
