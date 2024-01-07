@@ -25,6 +25,7 @@ export const HamburgerMenu = ({menuItems}: HamburgerMenuProps) => {
           aria-label='Options'
           icon={<HamburgerIcon/>}
           variant='outline'
+          data-testid="hamburger-menu"
         />
       </motion.div>
         <MenuList>
